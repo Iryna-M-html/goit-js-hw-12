@@ -54,7 +54,13 @@ form.addEventListener('submit', async e => {
 
     createGallery(data.hits);
 
-    if (totalHits > PER_PAGE) {
+    if (PER_PAGE >= totalHits) {
+      iziToast.info({
+        title: 'End of Results',
+        message: `We're sorry, but you've reached the end of search results.`,
+        position: 'topRight',
+      });
+    } else {
       showLoadMoreButton();
     }
   } catch (error) {
@@ -109,3 +115,6 @@ loadMoreBtn.addEventListener('click', async () => {
     hideLoader();
   }
 });
+
+
+
