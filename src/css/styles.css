@@ -109,33 +109,31 @@ ul {
 }
 .info {
   display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 0;
   width: 100%;
-  justify-content: space-around;
-  gap: 28px;
-  flex-wrap: wrap;
- 
   text-align: center;
+  border-top: 1px solid #dcdcdc;
+  padding-top: 12px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .info p {
-  flex: 1 1 0;
   margin: 0;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  flex: 1;
   font-size: 12px;
-  line-height: 1.33333;
-  letter-spacing: 0.04em;
+  font-weight: 400;
   color: #2e2f42;
-  min-width: 0;
-   word-wrap: break-word;
+  line-height: 1.4;
 }
 
 .info b {
   display: block;
-  font-weight: 600;
   font-size: 16px;
+  font-weight: 600;
   color: #111;
-  word-wrap: break-word;
+  margin-top: 4px;
 }
 
 
