@@ -54,6 +54,17 @@ form.addEventListener('submit', async e => {
 
     createGallery(data.hits);
 
+    ///Плавне прокручування 
+    const firstCard = document.querySelector('.gallery-item');
+    if (firstCard) {
+      const { height: cardHeight } = firstCard.getBoundingClientRect();
+      window.scrollBy({
+        top: cardHeight * 2,
+        behavior: 'smooth',
+      });
+    }
+
+
     if (PER_PAGE >= totalHits) {
       iziToast.info({
         title: 'End of Results',
@@ -84,15 +95,15 @@ loadMoreBtn.addEventListener('click', async () => {
     const data = await getImagesByQuery(currentQuery, currentPage);
     createGallery(data.hits);
 
-    // Scroll
-    const { height: cardHeight } = document
-      .querySelector('.gallery')
-      .firstElementChild.getBoundingClientRect();
-
-    window.scrollBy({
-      top: cardHeight * 2,
-      behavior: 'smooth',
-    });
+    // Scroll - прокручування
+    const firstCard = document.querySelector('.gallery-item');
+    if (firstCard) {
+      const { height: cardHeight } = firstCard.getBoundingClientRect();
+      window.scrollBy({
+        top: cardHeight * 2,
+        behavior: 'smooth',
+      });
+    }
 
     const totalLoaded = currentPage * PER_PAGE;
     if (totalLoaded >= totalHits) {
